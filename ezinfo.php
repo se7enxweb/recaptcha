@@ -24,15 +24,15 @@ class recaptchaInfo
     static function info()
     {
         return array(
-            'Name' => "reCAPTCHA eZ Publish Integration",
-            'Version' => "1.3",
+            'Name' => "reCAPTCHA extension",
+            'Version' => "2.0",
             'Author' => "<a href='http://www.stuffandcontent.com'>Bruce Morrison</a>",
-            'Copyright' => "Copyright (C) 2008-2011 Bruce Morrison",
+            'Copyright' => "Copyright (C) 2008-2019 Bruce Morrison",
             'License' => "GNU General Public License v2.0",
             'Includes the following third-party software' => array( 'Name' => 'PHP Library for reCAPTCHA',
-                                                                    'Version' => '1.11',
+                                                                    'Version' => '1.21',
                                                                     'License' => 'GPL - Mike Crawford &  Ben Maurer 2007',
-                                                                    'For more information' => 'http://recaptcha.net/plugins/php/' )
+                                                                    'For more information' => 'https://github.com/google/recaptcha' )
         );
     }
 }
