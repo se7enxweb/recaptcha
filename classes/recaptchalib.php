@@ -32,7 +32,7 @@
  * THE SOFTWARE.
  */
 
-require_once 'extension/recaptcha/classes/recaptcha/src/ReCaptcha/ReCaptcha.php';
+//require_once 'extension/recaptcha/classes/recaptcha/src/ReCaptcha/ReCaptcha.php';
 
 /**
  * The reCAPTCHA server URL's
