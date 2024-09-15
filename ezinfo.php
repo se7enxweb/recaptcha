@@ -25,7 +25,7 @@ class recaptchaInfo
     {
         return array(
             'Name' => "reCAPTCHA eZ Publish Integration",
-            'Version' => "1.4.1",
+            'Version' => "1.4.2",
             'Author' => "<a href='http://www.stuffandcontent.com'>Bruce Morrison</a>",
             'Maintainer' => "<a href='https://se7enx.com'>7x</a>",
             'Copyright' => "Copyright (C) 1999 - 2024 7x and 2008 - 2011 Bruce Morrison",
