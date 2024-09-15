@@ -59,7 +59,7 @@ class recaptchaType extends eZDataType
 
     if ( $classAttribute->attribute( 'is_information_collector' ) or $this->reCAPTCHAValidate($http) )
       return eZInputValidator::STATE_ACCEPTED;
-    $objectAttribute->setValidationError('ReCaptcha-Eingabe fehlerhaft. Bitte erneut versuchen.');
+    $objectAttribute->setValidationError('ReCaptcha - Input incorrect. Please try again.');
     return eZInputValidator::STATE_INVALID;
   }
 
@@ -67,7 +67,7 @@ class recaptchaType extends eZDataType
   {
     if ($this->reCAPTCHAValidate($http))
       return eZInputValidator::STATE_ACCEPTED;
-    $objectAttribute->setValidationError('ReCaptcha-Eingabe fehlerhaft. Bitte erneut versuchen.');
+    $objectAttribute->setValidationError('ReCaptcha - Input incorrect. Please try again.');
     return eZInputValidator::STATE_INVALID;
   }
 
