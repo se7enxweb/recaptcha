@@ -48,7 +48,7 @@
         <div class="content-action">
             <input type="hidden" class="defaultbutton" name="ActionCollectInformation" value="{"Send form"|i18n("design/ezwebin/full/feedback_form")}" onclick="onClick">
 
-            <button class="g-recaptcha btn btn-primary" style="width: 100%;" data-sitekey="{ezini( 'Keys', 'PublicKey', 'recaptcha.ini' )}" data-action="submit">Submit</button>
+            <button class="g-recaptcha btn btn-primary" style="width: 100%;" data-sitekey="{ezini( 'Keys', 'PublicKey', 'recaptcha.ini' )}" data-action="submit">{'Submit'|i18n( 'design/ezwebin/full/feedback_form' )}</button>
             <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
             <input type="hidden" name="ContentObjectID" value="{$node.object.id}" />
             <input type="hidden" name="ViewMode" value="full" />

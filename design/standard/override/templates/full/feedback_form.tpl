@@ -20,16 +20,16 @@
       <div class="space-y-8">
         <form action={"content/action"|ezurl} method="post" class="grid sm:grid-cols-2 gap-4 max-w-xl mx-auto">
           <div class="sm:col-span-1">
-            {attribute_view_gui attribute=$node.data_map.sender_name css_class="appearance-none w-full border border-solid border-gray-300 py-2.5 px-4 text-gray-900 bg-white placeholder:text-gray-400 outline-none transition-all duration-300 focus-visible:border-orange-500 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-300" placeholder="Full Name*"}
+            {attribute_view_gui attribute=$node.data_map.sender_name css_class="appearance-none w-full border border-solid border-gray-300 py-2.5 px-4 text-gray-900 bg-white placeholder:text-gray-400 outline-none transition-all duration-300 focus-visible:border-orange-500 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-300" placeholder='Full Name*'|i18n( 'design/ezwebin/full/feedback_form' )}
           </div>
           <div class="sm:col-span-1">
-            {attribute_view_gui attribute=$node.data_map.email css_class="appearance-none w-full border border-solid border-gray-300 py-2.5 px-4 text-gray-900 bg-white placeholder:text-gray-400 outline-none transition-all duration-300 focus-visible:border-orange-500 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-300" placeholder="Email Address*"}
+            {attribute_view_gui attribute=$node.data_map.email css_class="appearance-none w-full border border-solid border-gray-300 py-2.5 px-4 text-gray-900 bg-white placeholder:text-gray-400 outline-none transition-all duration-300 focus-visible:border-orange-500 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-300" placeholder='Email Address*'|i18n( 'design/ezwebin/full/feedback_form' )}
           </div>
           <div class="col-span-2">
-            {attribute_view_gui attribute=$node.data_map.subject css_class="appearance-none w-full border border-solid border-gray-300 py-2.5 px-4 text-gray-900 bg-white placeholder:text-gray-400 outline-none transition-all duration-300 focus-visible:border-orange-500 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-300" placeholder="Subject*"}
+            {attribute_view_gui attribute=$node.data_map.subject css_class="appearance-none w-full border border-solid border-gray-300 py-2.5 px-4 text-gray-900 bg-white placeholder:text-gray-400 outline-none transition-all duration-300 focus-visible:border-orange-500 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-300" placeholder='Subject*'|i18n( 'design/ezwebin/full/feedback_form' )}
           </div>
           <div class="col-span-2">
-            {attribute_view_gui attribute=$node.data_map.message css_class="appearance-none w-full border border-solid border-gray-300 py-2.5 px-4 text-gray-900 bg-white placeholder:text-gray-400 outline-none transition-all duration-300 focus-visible:border-orange-500 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-300 resize-none" placeholder="Message*"}
+            {attribute_view_gui attribute=$node.data_map.message css_class="appearance-none w-full border border-solid border-gray-300 py-2.5 px-4 text-gray-900 bg-white placeholder:text-gray-400 outline-none transition-all duration-300 focus-visible:border-orange-500 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-300 resize-none" placeholder='Message*'|i18n( 'design/ezwebin/full/feedback_form' )}
           </div>
           <div class="col-span-2">
             <input type="hidden" class="defaultbutton" name="ActionCollectInformation" value="{"Send Message"|i18n("design/ezwebin/full/feedback_form")}" onclick="onClick">
@@ -41,22 +41,18 @@
           </div>
           <div class="col-span-2">
             <button type="submit" class="g-recaptcha btn btn-primary group w-full flex items-center justify-center gap-4 border border-solid border-gray-300 bg-white text-base text-gray-900 font-medium py-2.5 px-4 lg:px-6 transition duration-300 hover:bg-gray-900 hover:text-white" style="width: 100%;" data-sitekey="{ezini( 'Keys', 'PublicKey', 'recaptcha.ini' )}" data-action="submit">
-              Send Message
+              {'Send Message'|i18n( 'design/ezwebin/full/feedback_form' )}
               <i class="fa-solid fa-arrow-right-long duration-100 group-hover:-rotate-45"></i>
             </button>
           </div>
           <script src="https://www.google.com/recaptcha/api.js"></script>
         </form>
         <p class="text-sm text-center">
-          Hate forms? Send us an
-          <a href="mailto:info@se7enx.com" class="text-orange-500 transition hover:text-orange-600">
-            email
-          </a>
-          instead.
+          {'Hate forms? Send us an <a href="%url" class="%class">email</a> instead.'|i18n( 'design/ezwebin/full/feedback_form',, hash( '%url', 'mailto:info@se7enx.com', '%class', 'text-orange-500 transition hover:text-orange-600' ) )}
         </p>
       </div>
       <div class="-order-1 lg:order-1">
-        <img src={"content/contact-us/illustration.svg"|ezimage()} alt="Contact Us"class="w-96 max-w-full h-auto object-contain mx-auto"/>
+        <img src={"content/contact-us/illustration.svg"|ezimage()} alt="{'Contact Us'|i18n( 'design/ezwebin/full/feedback_form' )}"class="w-96 max-w-full h-auto object-contain mx-auto"/>
       </div>
     </div>
   </div>
