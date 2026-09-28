@@ -24,12 +24,13 @@ class recaptchaInfo
     static function info()
     {
         return array(
-            'Name' => "reCAPTCHA eZ Publish Integration",
-            'Version' => "1.4.2",
+            'Name' => "reCAPTCHA Exponential Integration",
+            'Version' => "1.4.3",
             'Author' => "<a href='http://www.stuffandcontent.com'>Bruce Morrison</a>",
             'Maintainer' => "<a href='https://se7enx.com'>7x</a>",
             'Copyright' => "Copyright (C) 1999 - 2024 7x and 2008 - 2011 Bruce Morrison",
-            'License' => "GNU General Public License v2.0",
+            'License' => "GNU General Public License v2.0 (or any later version)",
+            'Info_url' => "https://github.com/se7enxweb/recaptcha",
             'Includes the following third-party software' => array( 'Name' => 'PHP Library for reCAPTCHA',
                                                                     'Version' => '1.3',
                                                                     'License' => 'GPL - Mike Crawford &  Ben Maurer 2007',
