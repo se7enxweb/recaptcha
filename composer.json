@@ -1,6 +1,6 @@
 {
     "name": "se7enxweb/recaptcha",
-    "description": "eZ Publish Legacy extension which provides a simple recaptcha solution for user registration and any forms. Great for smart developers!",
+    "description": "Exponential Legacy extension which provides a simple recaptcha solution for user registration and any forms. Great for smart developers!",
     "type": "ezpublish-legacy-extension",
     "keywords": [ "eZ Publish", "eZ Publish Legacy", "eZ Publish Platform", "captcha", "recaptcha", "extension", "datatype", "forms", "user registration" ],
     "homepage": "https://github.com/se7enxweb/recaptcha",

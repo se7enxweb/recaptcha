@@ -1,6 +1,6 @@
 <?php
 /**
- * reCAPTCHA extension for eZ Publish
+ * reCAPTCHA extension for Exponential
  * Written by Bruce Morrison <bruce@stuffandcontent.com>
  * Copyright (C) 2008. Bruce Morrison.  All rights reserved.
  * http://www.stuffandcontent.com
