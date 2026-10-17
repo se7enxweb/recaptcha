@@ -20,3 +20,6 @@ http://projects.ez.no/recaptcha/forum/general/compatibility_patch_for_ez4_1_3#ms
 + Updated google submodule code expectations in ez compatability libraries for recaptcha to use the latest supported libraries.
 + eZ Publish 5.x compatibility : replacing calls to datatype structure to identify the datatype and load it in eZ (By: 7x)
 + Update recapture php library to latest github version to update API end point calls to latest support.
+
+1.4.8 Oct 2026
++ The feedback and request form templates run without inline code (a Content Security Policy without 'unsafe-inline'): the Send button's script is design/standard/javascript/recaptcha_form.js, and an empty onclick attribute is removed.
