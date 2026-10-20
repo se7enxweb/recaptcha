@@ -23,3 +23,6 @@ http://projects.ez.no/recaptcha/forum/general/compatibility_patch_for_ez4_1_3#ms
 
 1.4.8 Oct 2026
 + The feedback and request form templates run without inline code (a Content Security Policy without 'unsafe-inline'): the Send button's script is design/standard/javascript/recaptcha_form.js, and an empty onclick attribute is removed.
+
+1.4.9 Oct 2026
++ Translations in Croatian, Czech, Danish, Dutch, Italian, Norwegian, Polish, Brazilian Portuguese, Swedish and Turkish.
