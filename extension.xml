@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<software>
+    <metadata>
+        <name>reCAPTCHA Exponential Integration</name>
+        <version>1.4.10</version>
+        <copyright>Copyright (C) 1999 - 2024 7x and 2008 - 2011 Bruce Morrison</copyright>
+        <license>GNU General Public License v2.0 (or any later version)</license>
+        <info_url>https://github.com/se7enxweb/recaptcha</info_url>
+    </metadata>
+</software>
