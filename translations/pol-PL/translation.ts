@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Send Message</source>
-        <translation>Wyślij wiadomość</translation>
+        <translation>Wysłać wiadomość</translation>
     </message>
     <message>
         <source>Hate forms? Send us an &lt;a href=&quot;%url&quot; class=&quot;%class&quot;&gt;email&lt;/a&gt; instead.</source>
@@ -33,11 +33,11 @@
     </message>
     <message>
         <source>Send form</source>
-        <translation>Wyślij formularz</translation>
+        <translation>Wysłać formularz</translation>
     </message>
     <message>
         <source>Submit</source>
-        <translation>Wyślij</translation>
+        <translation>Wysłać</translation>
     </message>
 </context>
 <context>
