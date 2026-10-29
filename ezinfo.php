@@ -28,7 +28,7 @@ class recaptchaInfo
             'Version' => "1.4.12",
             'Author' => "<a href='http://www.stuffandcontent.com'>Bruce Morrison</a>",
             'Maintainer' => "<a href='https://se7enx.com'>7x</a>",
-            'Copyright' => "Copyright (C) 1999 - 2024 7x and 2008 - 2011 Bruce Morrison",
+            'Copyright' => "Copyright (C) 1998 - 2026 Exponential Foundation and 7x. All rights reserved. Copyright (C) 2008 - 2011 Bruce Morrison",
             'License' => "GNU General Public License v2.0 (or any later version)",
             'Info_url' => "https://github.com/se7enxweb/recaptcha",
             'Includes the following third-party software' => array( 'Name' => 'PHP Library for reCAPTCHA',
