@@ -25,7 +25,7 @@ class recaptchaInfo
     {
         return array(
             'Name' => "reCAPTCHA Exponential Integration",
-            'Version' => "1.4.12",
+            'Version' => "1.4.13",
             'Author' => "<a href='http://www.stuffandcontent.com'>Bruce Morrison</a>",
             'Maintainer' => "<a href='https://se7enx.com'>7x</a>",
             'Copyright' => "Copyright (C) 1998 - 2026 Exponential Foundation and 7x. All rights reserved. Copyright (C) 2008 - 2011 Bruce Morrison",
