@@ -25,6 +25,3 @@ $eZTemplateOperatorArray[] = array(
 	'class' => 'reCAPTCHATemplateOperator', 
 	'operator_names' => array ( 'recaptcha_get_html' ), 
 );
-
-?>
-
