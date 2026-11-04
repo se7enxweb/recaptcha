@@ -26,3 +26,7 @@ http://projects.ez.no/recaptcha/forum/general/compatibility_patch_for_ez4_1_3#ms
 
 1.4.9 Oct 2026
 + Translations in Croatian, Czech, Danish, Dutch, Italian, Norwegian, Polish, Brazilian Portuguese, Swedish and Turkish.
+
+## 1.4.14 (2026-11-03)
+
+- Updated: The PHP files end without a closing tag; the template autoload printed a newline when loaded ("headers already sent" for any later header).
