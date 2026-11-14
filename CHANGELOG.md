@@ -30,3 +30,14 @@ http://projects.ez.no/recaptcha/forum/general/compatibility_patch_for_ez4_1_3#ms
 ## 1.4.14 (2026-11-03)
 
 - Updated: The PHP files end without a closing tag; the template autoload printed a newline when loaded ("headers already sent" for any later header).
+
+## 1.4.15 (2026-11-14)
+
+- Updated: Pull request #2 (Marco-JAC) is merged: Mailhide (`recaptcha_mailhide_html()` in `classes/recaptchalib.php`)
+  escapes with `htmlentities( ..., ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401 )`, the default of PHP 8.1 and later. The
+  escaped URL goes into an `href` and an `onclick` quoted with single quotes; without flags PHP 8.0 used
+  `ENT_COMPAT | ENT_HTML401`, which leaves a single quote as it is and turns invalid UTF-8 into an empty string.
+  The output on PHP 8.1 and later does not change. Mailhide itself still needs the mcrypt extension, which PHP has not
+  shipped since 7.2.
+- No escaping call without flags is left in the extension; `php -l` passes on PHP 8.0 and 8.5 for every PHP file.
+- Updated: `ezinfo.php` and `extension.xml` state 1.4.15.
