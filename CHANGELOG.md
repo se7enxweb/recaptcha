@@ -41,3 +41,14 @@ http://projects.ez.no/recaptcha/forum/general/compatibility_patch_for_ez4_1_3#ms
   shipped since 7.2.
 - No escaping call without flags is left in the extension; `php -l` passes on PHP 8.0 and 8.5 for every PHP file.
 - Updated: `ezinfo.php` and `extension.xml` state 1.4.15.
+
+## 1.4.16 (2026-11-18)
+
+- Added: `[Display] Type` in recaptcha.ini (`checkbox`, `invisible` or `v3`; default `checkbox`) states the type the
+  keys were created for. With `invisible` or `v3` the `recaptcha_get_html()` operator and the datatype print only
+  `api.js?render=explicit&onload=<[Display] OnloadCallback>` (default `onRecaptchaLoadCallback`), and the page renders
+  the widget itself. Before, every key was drawn as a v2 checkbox, and an invisible or v3 key showed Google's
+  "ERROR for site owner: Invalid key type".
+- Added: `[Verify] MinimumScore` (default 0.5): with `Type=v3` an answer passes only with at least this score.
+- Updated: A failed verification sets `is_valid` to false explicitly.
+- Updated: `ezinfo.php` and `extension.xml` state 1.4.16.

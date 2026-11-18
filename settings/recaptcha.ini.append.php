@@ -26,6 +26,19 @@ PublicKey=Enter your Public Key here
 PrivateKey=Enter your Private Key here
 
 [Display]
+# The type the keys were created for in the reCAPTCHA admin console. It must
+# match, or Google's widget shows "ERROR for site owner: Invalid key type".
+#   checkbox   v2 "I'm not a robot" checkbox (the default): api.js and a
+#              g-recaptcha div are printed, the widget draws itself
+#   invisible  v2 invisible
+#   v3         v3, score based
+# For invisible and v3 only api.js?render=explicit&onload=<OnloadCallback> is
+# printed: the page's own function OnloadCallback renders the widget
+# (grecaptcha.render( element, { sitekey: ..., size: 'invisible' } )), calls
+# grecaptcha.execute() on submit and posts the token as g-recaptcha-response.
+Type=checkbox
+OnloadCallback=onRecaptchaLoadCallback
+
 # Possible themes 'red' | 'white' | 'blackglass' | 'clean' | 'custom'
 # see https://developers.google.com/recaptcha/old/docs/customization
 #
@@ -56,5 +69,10 @@ OverrideLang=
 # Usefull if you want to use recaptcha only for user/register and not on user/edit
 # Another use would be to use recaptcha only when adding comments and not when editing them.
 NewObjectsOnly=false
+
+[Verify]
+# Type=v3 only: the lowest score (0.0 bot to 1.0 person) an answer needs to
+# pass. Google suggests 0.5.
+MinimumScore=0.5
 
 */ ?>

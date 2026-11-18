@@ -42,6 +42,54 @@ define("RECAPTCHA_API_SECURE_SERVER", "https://www.google.com/recaptcha/api");
 define("RECAPTCHA_VERIFY_SERVER", "www.google.com");
 
 /**
+ * Reads one setting of recaptcha.ini, or returns the default outside Exponential or when it is not set
+ * @param string $group
+ * @param string $name
+ * @param mixed $default
+ * @return mixed
+ */
+function _recaptcha_setting ($group, $name, $default) {
+        if ( !class_exists( 'eZINI' ) ) {
+                return $default;
+        }
+        $ini = eZINI::instance( 'recaptcha.ini' );
+        if ( !$ini->hasVariable( $group, $name ) ) {
+                return $default;
+        }
+        $value = $ini->variable( $group, $name );
+        return ( $value === '' || $value === null ) ? $default : $value;
+}
+
+/**
+ * The type the site's key was created for in the reCAPTCHA admin console ([Display] Type):
+ * 'checkbox' (v2 "I'm not a robot", the default), 'invisible' (v2 invisible) or 'v3' (score based)
+ * @return string
+ */
+function recaptcha_display_type () {
+        $type = strtolower( trim( (string) _recaptcha_setting( 'Display', 'Type', 'checkbox' ) ) );
+        return in_array( $type, array( 'checkbox', 'invisible', 'v3' ), true ) ? $type : 'checkbox';
+}
+
+/**
+ * The name of the page's function that api.js calls when it has loaded ([Display] OnloadCallback),
+ * used by the types 'invisible' and 'v3'. Only a JavaScript identifier is accepted.
+ * @return string
+ */
+function recaptcha_onload_callback () {
+        $name = trim( (string) _recaptcha_setting( 'Display', 'OnloadCallback', 'onRecaptchaLoadCallback' ) );
+        return preg_match( '/^[A-Za-z_$][A-Za-z0-9_$]*$/', $name ) ? $name : 'onRecaptchaLoadCallback';
+}
+
+/**
+ * The lowest score (0.0 to 1.0) a v3 answer needs to pass ([Verify] MinimumScore)
+ * @return float
+ */
+function recaptcha_minimum_score () {
+        $score = (float) _recaptcha_setting( 'Verify', 'MinimumScore', 0.5 );
+        return max( 0.0, min( 1.0, $score ) );
+}
+
+/**
  * Encodes the given data into a query string format
  * @param $data - array of string elements to be encoded
  * @return string - encoded request
@@ -102,10 +150,11 @@ function _recaptcha_http_post($host, $path, $data, $port = 80) {
  * @param string $pubkey A public key for reCAPTCHA
  * @param string $error The error given by reCAPTCHA (optional, default is null)
  * @param boolean $use_ssl Should the request be made over ssl? (optional, default is false)
+ * @param string $type The key's type: 'checkbox', 'invisible' or 'v3' (optional, default is [Display] Type in recaptcha.ini)
 
  * @return string - The HTML to be embedded in the user's form.
  */
-function recaptcha_get_html ($pubkey, $error = null, $use_ssl = false)
+function recaptcha_get_html ($pubkey, $error = null, $use_ssl = false, $type = null)
 {
 	if ($pubkey == null || $pubkey == '') {
 		die ("To use reCAPTCHA you must get an API key from <a href='https://www.google.com/recaptcha/admin/create'>https://www.google.com/recaptcha/admin/create</a>");
@@ -120,6 +169,16 @@ function recaptcha_get_html ($pubkey, $error = null, $use_ssl = false)
         $errorpart = "";
         if ($error) {
            $errorpart = "&amp;error=" . $error;
+        }
+
+        if ( $type === null ) {
+                $type = recaptcha_display_type();
+        }
+
+        // An invisible or a score (v3) key cannot draw the checkbox widget: Google answers "Invalid key type".
+        // The page renders the widget itself in the onload callback ([Display] OnloadCallback).
+        if ( $type === 'invisible' || $type === 'v3' ) {
+                return '<script type="text/javascript" src="'. $server . '.js?render=explicit&amp;onload=' . recaptcha_onload_callback() . '" async defer></script>';
         }
 
         return '<script type="text/javascript" src="'. $server . '.js"></script>'
@@ -172,15 +231,18 @@ function recaptcha_check_answer ($privatekey, $remoteip, $challenge, $response, 
 
         if ( $resp->isSuccess() )
         {
-            //$recaptcha_response->is_valid = true;
             $resp->is_valid = true;
+
+            // A v3 answer always succeeds; its score tells a person (1.0) from a bot (0.0)
+            if ( recaptcha_display_type() === 'v3' )
+            {
+                $score = $resp->getScore();
+                $resp->is_valid = ( $score !== null && $score >= recaptcha_minimum_score() );
+            }
         }
         else
         {
-            //$recaptcha_response->is_valid = false;
-            //$resp->is_valid = false;
-            //$recaptcha_response->error = $resp->error-codes;
-            //$resp->error = $resp->error-codes;
+            $resp->is_valid = false;
         }
 
         return $resp;//$recaptcha_response;
